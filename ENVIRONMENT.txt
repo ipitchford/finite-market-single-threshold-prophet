@@ -1,0 +1,16 @@
+Release replay environment (24 November 2026, macOS arm64 host)
+Interpreter: CPython 3.12.11 (uv-managed: `uv run --no-project --python 3.12 ... python`; version printed inside the
+run with sys.version). Note: on this host `uv run --python 3.12 python3` can resolve to CPython 3.14 through a `python3`
+shim; the lead's pre-release replay recorded CPython 3.14.7 for that reason. Both produced byte-identical outputs.
+Packages: mpmath 1.3.0, matplotlib 3.10.8 (requirements.txt). verify.py and check_extensions.py use the standard library only.
+GitHub CI: ubuntu-latest, actions/setup-python 3.12, pip-installed pins as above; every check script runs under python -O.
+Cross-platform comparison (declared before tagging; same policy in CI, README.md and REPLAY_RECEIPT.md):
+- No output contains an interpreter or package version, so no field is excluded.
+- results/verify.txt and results/extensions.txt: same lines and tokens; every non-numeric token (labels, counts printed
+  as integers, headers) exact; every decimal number within absolute 1e-7 (they are printed to 8 decimals from
+  double-precision bisection, so the last digit may differ between platforms).
+- results/additions.json: same structure, keys, strings, integers and booleans exactly; floating-point numbers (mpmath
+  at 50 digits, printed as doubles) within relative 1e-9.
+- figures/frontier.pdf is regenerated (exit 0) but not compared (render metadata).
+- The exact-rational checks (585 crossing profiles, 12 direct-welfare comparisons, 643 boundary calibrated thresholds)
+  are platform independent; every script exits 0 and check_additions.py prints "ALL ADDITIONAL CHECKS PASSED".

@@ -1,0 +1,93 @@
+# SPDX-License-Identifier: MIT
+name: Replay
+on:
+  push:
+  pull_request:
+jobs:
+  quick:
+    name: Manifest; every script under python -O compared with results/ under the declared policy; two negative controls (blocking)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check MANIFEST.sha256
+        run: sha256sum -c MANIFEST.sha256
+      - name: Install pinned versions
+        run: python3 -m pip install --disable-pip-version-check -r requirements.txt
+      - name: Write the comparator (declared cross-platform policy)
+        run: |
+          cat > "$RUNNER_TEMP/compare_outputs.py" <<'PY'
+          """Compare a replayed output with the recorded one under the declared cross-platform policy.
+          Usage: compare_outputs.py text|json RECORDED REPLAYED.  Exit 0 if equivalent, 1 otherwise (no assert).
+          text: same number of lines and whitespace-separated tokens; tokens that are decimal numbers (contain '.') within
+          absolute 1e-7; every other token exact.
+          json: structure, keys, strings, integers and booleans exact; floating-point numbers within relative 1e-9."""
+          import json, math, re, sys
+          def fail(m): print('MISMATCH', m); sys.exit(1)
+          mode, a, b = sys.argv[1:4]
+          n = [0]
+          DEC = re.compile(r'^[-+]?\d+\.\d+$')
+          if mode == 'text':
+              la, lb = open(a, encoding='utf-8').read().splitlines(), open(b, encoding='utf-8').read().splitlines()
+              if len(la) != len(lb): fail('line count')
+              for i, (u, v) in enumerate(zip(la, lb)):
+                  tu, tv = u.split(), v.split()
+                  if len(tu) != len(tv): fail(f'line {i + 1} token count')
+                  for x, y in zip(tu, tv):
+                      if DEC.match(x) and DEC.match(y):
+                          n[0] += 1
+                          if not math.isclose(float(x), float(y), rel_tol=0.0, abs_tol=1e-7): fail(f'line {i + 1}: {x} vs {y}')
+                      elif x != y: fail(f'line {i + 1}: {x!r} vs {y!r}')
+          elif mode == 'json':
+              def walk(x, y, p):
+                  if isinstance(x, dict) and isinstance(y, dict):
+                      if set(x) != set(y): fail(f'keys differ at {p}')
+                      for k in x: walk(x[k], y[k], f'{p}/{k}')
+                  elif isinstance(x, list) and isinstance(y, list):
+                      if len(x) != len(y): fail(f'length at {p}')
+                      for i, (u, v) in enumerate(zip(x, y)): walk(u, v, f'{p}[{i}]')
+                  elif isinstance(x, float) and isinstance(y, float):
+                      n[0] += 1
+                      if not math.isclose(x, y, rel_tol=1e-9, abs_tol=0.0): fail(f'{p}: {x!r} vs {y!r}')
+                  elif x != y or type(x) is not type(y): fail(f'{p}: {x!r} vs {y!r}')
+              walk(json.load(open(a)), json.load(open(b)), '')
+          else: sys.exit(__doc__)
+          print(f'equivalent ({mode}, {n[0]} numbers compared with tolerance): {b}')
+          PY
+      - name: Run every script in copies of the package
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          python3 -I -c 'import sys; print(sys.version)'
+          for d in run neg1 neg2; do mkdir -p "$RUNNER_TEMP/$d"; cp -R code results figures "$RUNNER_TEMP/$d/"; done
+          cd "$RUNNER_TEMP/run"
+          python3 -O -I -B code/verify.py > verify.txt
+          python3 -O -I -B code/check_extensions.py > extensions.txt
+          python3 -O -I -B code/check_additions.py > additions.json 2> additions.err
+          grep -q 'ALL ADDITIONAL CHECKS PASSED' additions.err
+          MPLBACKEND=Agg python3 -E -s -B code/figure.py
+      - name: Compare with the recorded outputs
+        run: |
+          C="$RUNNER_TEMP/compare_outputs.py"; O="$RUNNER_TEMP/run"
+          python3 -I "$C" text results/verify.txt "$O/verify.txt"
+          python3 -I "$C" text results/extensions.txt "$O/extensions.txt"
+          python3 -I "$C" json results/additions.json "$O/additions.json"
+          echo "PASS: outputs agree with results/ under the declared policy"
+      - name: Negative controls under -O
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          cd "$RUNNER_TEMP/neg1"
+          test "$(grep -c '^    first = b \* lo \* hi / (k \* c)$' code/check_additions.py)" = 1
+          sed -i 's|^    first = b \* lo \* hi / (k \* c)$|    first = mp.mpf("1.01") * b * lo * hi / (k * c)|' code/check_additions.py
+          if python3 -O -I -B code/check_additions.py > /dev/null 2>&1; then echo "negative control 1 (heterogeneity coefficient) not detected"; exit 1; fi
+          cd "$RUNNER_TEMP/neg2"
+          test "$(grep -c 'ensure(reward == k\*t\*u + sum(s\*ex for s,ex in zip(a, excesses)))' code/verify.py)" = 1
+          sed -i 's|ensure(reward == k\*t\*u + sum(s\*ex for s,ex in zip(a, excesses)))|ensure(reward == 1+k*t*u + sum(s*ex for s,ex in zip(a, excesses)))|' code/verify.py
+          if python3 -O -I -B code/verify.py > /dev/null 2>&1; then echo "negative control 2 (decomposition identity) not detected"; exit 1; fi
+          echo "negative controls detected"
+      - name: Working tree unchanged
+        run: test -z "$(git status --porcelain)"

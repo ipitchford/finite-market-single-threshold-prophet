@@ -1,0 +1,256 @@
+{
+ "schemaVersion": "1.0",
+ "provenance": "Compiled 24 November 2026 for 0.1.0-candidate from the dated searches of the internal AI-assisted review (24 November 2026), the source retrieval record, the corpus overlap check, refs.bib, REVIEW_SUMMARY.md and the paper's own positioning (Section 1). It records scrutiny performed, not historical priority.",
+ "contributionMap": [
+  {
+   "claim": "Exact finite-market worst-case values for heterogeneous values in random order: fixed-stockout curve, all-static value with one instance defeating every threshold, identical-law value",
+   "unit": "statement",
+   "paperLocation": "Theorem 2.1; Section 2.3",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar forward citations of Arnosti-Ma 2023 (43) and Molina et al. 2025 (4); arXiv searches to November 2026; Evidence Press release corpus (site papers/ and the batch corpus list)",
+     "query": "\"prophet secretary\"; \"static threshold\" prophet; prophet AND stockout; abstracts of arXiv 2402.19292, 2602.20398, 2602.18756, 2409.07719, 2505.18061, 2607.05085, 2610.09050, 2610.24711, 2611.16880, 2608.08662 checked"
+    },
+    {
+     "date": "2026-11-24",
+     "corpus": "the load-bearing sources read in full (Arnosti-Ma, Molina et al., Jiang-Ma-Zhang, Chawla-Devanur-Lykouris, Ehsani et al., Yu, Arnosti blog, Loiseau et al.)",
+     "query": "comparison of Poisson-binomial sums with binomial or Poisson laws (relative log-concavity, crossing of distribution functions); matched-utilisation extremality (Arnosti-Ma Lemma 2, Theorem 4); rare-jackpot hard instances; finite-n static values for identical laws and adversarial order"
+    }
+   ],
+   "closestPriorWork": "Jiang-Ma-Zhang (MOR 2026) Theorem 8/Corollary 2 and Arnosti's blog (identical laws, k = l); JMZ Theorem 6 and eq. (21) (adversarial order); Arnosti-Ma (large-market limit)",
+   "verdict": "new-in-bounded-search",
+   "verdictNote": "identical-law equal-capacity values are credited; the heterogeneous random-order finite values were not found"
+  },
+  {
+   "claim": "Arnosti-Ma stockout conjecture: the stockout target P(Pois(k) >= k) attains gamma_k for every k and every market size",
+   "unit": "statement",
+   "paperLocation": "Corollary 3.1 and following paragraph",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar forward citations of Arnosti-Ma 2023 (43) and Molina et al. 2025 (4); arXiv searches to November 2026; Evidence Press release corpus (site papers/ and the batch corpus list)",
+     "query": "\"prophet secretary\"; \"static threshold\" prophet; prophet AND stockout; abstracts of arXiv 2402.19292, 2602.20398, 2602.18756, 2409.07719, 2505.18061, 2607.05085, 2610.09050, 2610.24711, 2611.16880, 2608.08662 checked"
+    }
+   ],
+   "closestPriorWork": "Arnosti-Ma Section 5.2 (the conjecture), their Lemma 1; Ehsani et al. 2018 (k = 1)",
+   "verdict": "new-in-bounded-search",
+   "verdictNote": "the paper records that Arnosti-Ma Lemma 1 plus the crossing lemma already yields the conjecture; no earlier proof found in the searched corpus"
+  },
+  {
+   "claim": "Molina et al. question (end of their Section 6): their unequal-capacity constant holds for heterogeneous values, static thresholds, large-market limit",
+   "unit": "statement",
+   "paperLocation": "Corollary 3.1",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar forward citations of Arnosti-Ma 2023 (43) and Molina et al. 2025 (4); arXiv searches to November 2026; Evidence Press release corpus (site papers/ and the batch corpus list)",
+     "query": "\"prophet secretary\"; \"static threshold\" prophet; prophet AND stockout; abstracts of arXiv 2402.19292, 2602.20398, 2602.18756, 2409.07719, 2505.18061, 2607.05085, 2610.09050, 2610.24711, 2611.16880, 2608.08662 checked"
+    }
+   ],
+   "closestPriorWork": "Molina-Gast-Loiseau-Perchet SODA 2025 Theorem 1.4 (identical laws)",
+   "verdict": "new-in-bounded-search",
+   "verdictNote": "answer for static thresholds only"
+  },
+  {
+   "claim": "Ranking of information regimes: utilisation target loses nothing (Proposition 2.4); stockout cost of exact order 1/n^2 with explicit coefficient (Corollary 3.2); heterogeneity cost of order 1/n with explicit coefficient (Corollary 3.3); identical-law fixed-stockout curve (Proposition 2.6); boundary cases (Proposition 2.5)",
+   "unit": "statement",
+   "paperLocation": "Propositions 2.4-2.6; Corollaries 3.2, 3.3",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar forward citations of Arnosti-Ma 2023 (43) and Molina et al. 2025 (4); arXiv searches to November 2026; Evidence Press release corpus (site papers/ and the batch corpus list)",
+     "query": "\"prophet secretary\"; \"static threshold\" prophet; prophet AND stockout; abstracts of arXiv 2402.19292, 2602.20398, 2602.18756, 2409.07719, 2505.18061, 2607.05085, 2610.09050, 2610.24711, 2611.16880, 2608.08662 checked"
+    },
+    {
+     "date": "2026-11-24",
+     "corpus": "the load-bearing sources read in full (Arnosti-Ma, Molina et al., Jiang-Ma-Zhang, Chawla-Devanur-Lykouris, Ehsani et al., Yu, Arnosti blog, Loiseau et al.)",
+     "query": "comparison of Poisson-binomial sums with binomial or Poisson laws (relative log-concavity, crossing of distribution functions); matched-utilisation extremality (Arnosti-Ma Lemma 2, Theorem 4); rare-jackpot hard instances; finite-n static values for identical laws and adversarial order"
+    }
+   ],
+   "closestPriorWork": "Arnosti-Ma Lemma 2 (binomial extremality at matched utilisation, credited); Molina et al. Proposition 6.1 (quantile rule, asymptotic)",
+   "verdict": "partially-known-cited",
+   "verdictNote": "matched-utilisation extremality for the full count is Arnosti-Ma's; the finite values and expansions are claimed as new"
+  },
+  {
+   "claim": "Method: comparison at a common tail (stockout) probability by a single-crossing lemma, applied to each applicant's count of qualifying rivals; one supporting-line hard instance defeating every threshold",
+   "unit": "method",
+   "paperLocation": "Lemma 2.2; Sections 2.2-2.3",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "the load-bearing sources read in full (Arnosti-Ma, Molina et al., Jiang-Ma-Zhang, Chawla-Devanur-Lykouris, Ehsani et al., Yu, Arnosti blog, Loiseau et al.)",
+     "query": "comparison of Poisson-binomial sums with binomial or Poisson laws (relative log-concavity, crossing of distribution functions); matched-utilisation extremality (Arnosti-Ma Lemma 2, Theorem 4); rare-jackpot hard instances; finite-n static values for identical laws and adversarial order"
+    }
+   ],
+   "closestPriorWork": "relative log-concavity of Bernoulli sums (Yu 2010); Arnosti-Ma matched-utilisation comparison and three-value reduction (their Theorem 4); rare-jackpot instances in Arnosti-Ma, Molina et al. and Arnosti's blog",
+   "verdict": "partially-known-cited",
+   "verdictNote": "the tools are classical and credited; their combination at a common tail probability on rival counts is claimed as the new ingredient"
+  },
+  {
+   "claim": "Extensions to weighted rank benchmarks and random/adversarial order mixtures",
+   "unit": "statement",
+   "paperLocation": "Section 4",
+   "searches": [
+    {
+     "date": "2026-11-24",
+     "corpus": "Semantic Scholar forward citations of Arnosti-Ma 2023 (43) and Molina et al. 2025 (4); arXiv searches to November 2026; Evidence Press release corpus (site papers/ and the batch corpus list)",
+     "query": "\"prophet secretary\"; \"static threshold\" prophet; prophet AND stockout; abstracts of arXiv 2402.19292, 2602.20398, 2602.18756, 2409.07719, 2505.18061, 2607.05085, 2610.09050, 2610.24711, 2611.16880, 2608.08662 checked"
+    }
+   ],
+   "closestPriorWork": "Molina et al. Section 7.1 (weighted ranks); JMZ eq. (21) (rho = 1)",
+   "verdict": "partially-known-cited",
+   "verdictNote": "rho = 1, b = k recovers JMZ eq. (21)"
+  }
+ ],
+ "sourcesReadInFull": [
+  {
+   "citation": "Arnosti, N. and Ma, W. (2023), Tight guarantees for static threshold policies in the prophet secretary problem, Operations Research 71(5), 1777-1788 (arXiv:2108.12893v2)",
+   "usedFor": "the conjecture (Section 5.2), Lemma 1, Lemma 2, Theorem 4, Proposition 1",
+   "readWhat": "whole paper, arXiv v2",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1287/opre.2022.2419"
+  },
+  {
+   "citation": "Molina, M., Gast, N., Loiseau, P. and Perchet, V. (2025), Prophet inequalities: competing with the top l items is easy, SODA 2025, 1270-1307 (arXiv:2408.07616v2)",
+   "usedFor": "Theorem 1.4, the question at the end of Section 6, Proposition 6.1, Section 7.1",
+   "readWhat": "whole paper, arXiv v2",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1137/1.9781611978322.38"
+  },
+  {
+   "citation": "Jiang, J., Ma, W. and Zhang, J. (2026), Tightness without counterexamples, Mathematics of Operations Research 51(2), 956-987 (arXiv:2205.00588v5)",
+   "usedFor": "Theorem 6, eq. (21), Theorem 8, Corollary 2",
+   "readWhat": "whole paper, arXiv v5 and author PDF",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1287/moor.2023.0221"
+  },
+  {
+   "citation": "Chawla, S., Devanur, N. and Lykouris, T. (2024), Static pricing for multi-unit prophet inequalities, Operations Research 72(4), 1388-1399 (arXiv:2007.07990v4)",
+   "usedFor": "adversarial-order static constant; balancing price",
+   "readWhat": "whole paper, arXiv v4",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1287/opre.2023.0031"
+  },
+  {
+   "citation": "Ehsani, S., Hajiaghayi, M., Kesselheim, T. and Singla, S. (2018), Prophet secretary for combinatorial auctions and matroids, SODA 2018, 700-714 (arXiv:1710.11213v2)",
+   "usedFor": "k = 1 rule (Section 5.1, Theorem 19)",
+   "readWhat": "Section 5.1",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.1137/1.9781611975031.46"
+  },
+  {
+   "citation": "Yu, Y. (2010), Relative log-concavity and a pair of triangle inequalities, Bernoulli 16(2), 459-470 (arXiv:1010.2043v1)",
+   "usedFor": "relative log-concavity of Bernoulli sums",
+   "readWhat": "whole paper",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://doi.org/10.3150/09-BEJ216"
+  },
+  {
+   "citation": "Arnosti, N. (2020), IID prophet inequalities (blog post)",
+   "usedFor": "finite-n identical-law static value",
+   "readWhat": "whole post",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://nickarnosti.com/blog/iidprophet/"
+  },
+  {
+   "citation": "Loiseau, P., Molina, M., Perchet, V., Perez-Salazar, S. and Verdugo, V. (2026), Kernel methods for refined prophet inequalities, arXiv:2608.08662v1",
+   "usedFor": "dispersion-limited benchmarks; open problems",
+   "readWhat": "whole paper",
+   "date": "2026-11-24",
+   "evidenceLocator": "https://arxiv.org/abs/2608.08662"
+  }
+ ],
+ "limitationTriage": [
+  {
+   "limitation": "Exact finite value of the expected-demand rule",
+   "closingQuestion": "What is its finite worst-case value?",
+   "triedOrSearched": "Arnosti-Ma show it is suboptimal for k <= 4; not attempted in the revision round",
+   "estimatedCost": "research-level",
+   "cheap": false,
+   "decision": "OPEN",
+   "reasonOpen": "Section 6, first open question",
+   "whyNotClosedNow": "a different extremal problem; stated as open"
+  },
+  {
+   "limitation": "Stockout cost under random/adversarial order mixtures",
+   "closingQuestion": "Is the n^-2 stockout cost stable under mixtures?",
+   "triedOrSearched": "Section 4 gives exact values for parts 1-2; the expansion was not extended",
+   "estimatedCost": "research-level",
+   "cheap": false,
+   "decision": "OPEN",
+   "reasonOpen": "Section 6, second open question",
+   "whyNotClosedNow": "stated as open"
+  },
+  {
+   "limitation": "Gap between static and adaptive policies at finite n",
+   "closingQuestion": "How much do adaptive thresholds gain at finite n?",
+   "triedOrSearched": "known only in limits; related Evidence Press release on adaptive i.i.d. limits cited",
+   "estimatedCost": "research-level",
+   "cheap": false,
+   "decision": "OPEN",
+   "reasonOpen": "Section 6, third open question",
+   "whyNotClosedNow": "outside the static model"
+  },
+  {
+   "limitation": "Boundary cases k = n or l = n were terse",
+   "closingQuestion": "Are they proved?",
+   "triedOrSearched": "now Proposition 2.5 with full proof",
+   "estimatedCost": "hours",
+   "cheap": true,
+   "decision": "CLOSED",
+   "reasonOpen": "",
+   "whyNotClosedNow": ""
+  },
+  {
+   "limitation": "Computational checks could be vacuous under optimisation",
+   "closingQuestion": "Do the checks fail when a value is wrong?",
+   "triedOrSearched": "assert statements replaced by explicit checks; two negative controls exit 1 under python -O",
+   "estimatedCost": "minutes",
+   "cheap": true,
+   "decision": "CLOSED",
+   "reasonOpen": "",
+   "whyNotClosedNow": ""
+  },
+  {
+   "limitation": "Worst-case scope: hard instances use a rare, very valuable buyer",
+   "closingQuestion": "Do typical markets do better?",
+   "triedOrSearched": "stated in Section 6; dispersion-limited benchmarks (Loiseau et al.) can give larger values",
+   "estimatedCost": "not a defect",
+   "cheap": false,
+   "decision": "OPEN",
+   "reasonOpen": "scope of the model",
+   "whyNotClosedNow": "stated plainly on the page and in the paper"
+  },
+  {
+   "limitation": "Priority rests on a literature search of limited scope",
+   "closingQuestion": "Would indexed databases change attribution?",
+   "triedOrSearched": "Semantic Scholar forward citations, arXiv searches, Evidence Press corpus; Zotero offline",
+   "estimatedCost": "subscription indexes",
+   "cheap": false,
+   "decision": "OPEN",
+   "reasonOpen": "MathSciNet and zbMATH were outside the searched corpus",
+   "whyNotClosedNow": "recorded here; the paper says only that the results were not found earlier"
+  }
+ ],
+ "extensionScout": {
+  "by": "five internal reviewer roles (one combined Claude pass) and the lead",
+  "date": "2026-11-24",
+  "proposals": [
+   "exact value of the utilisation-calibrated rule",
+   "heterogeneity gap expansion",
+   "identical-law fixed-stockout curve",
+   "table of optimal targets",
+   "boundary cases as a proposition",
+   "expected-demand rule; stockout cost under order mixtures"
+  ],
+  "actions": [
+   "done: Proposition 2.4",
+   "done: Corollary 3.3",
+   "done: Proposition 2.6",
+   "done: Table 1",
+   "done: Proposition 2.5",
+   "not attempted; stated as open"
+  ]
+ }
+}

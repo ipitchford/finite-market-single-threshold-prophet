@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it using these metadata."
+type: software
+title: "Sharp finite-market prophet inequalities for a single threshold"
+abstract: "Unrefereed research candidate. Exact worst-case values of a fixed threshold in random-order markets, and a proof of the Arnosti-Ma stockout conjecture. For independent, possibly heterogeneous values arriving in uniformly random order, the paper gives the exact worst-case ratio, at every finite market size, of a single static threshold that accepts the first k qualifiers against the average of the best l values: distribution-aware, calibrated to a stockout probability, calibrated to an expected utilisation, and for identical laws. The utilisation rule at its best target equals the distribution-aware optimum; the stockout rule loses an amount of exact order 1/n^2; identical laws are easier by order 1/n. Over all market sizes the stockout target proposed by Arnosti and Ma attains 1 - e^-k k^k/k!, which proves their conjecture, and the unequal-capacity constant of Molina et al. holds for heterogeneous values (static thresholds)."
+authors:
+  - name: "Anonymous"
+version: "0.1.0-candidate"
+date-released: "2026-11-24"
+doi: "10.5281/zenodo.24506643"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24506643"
+    description: "This version"
+  - type: doi
+    value: "10.5281/zenodo.24506642"
+    description: "All versions (concept DOI)"
+repository-code: "https://github.com/ipitchford/finite-market-single-threshold-prophet"
+url: "https://evidencepress.org/releases/finite-market-single-threshold-prophet/"
+license: CC0-1.0
+keywords:
+  - prophet inequality
+  - prophet secretary
+  - static threshold
+  - posted pricing
+  - stockout probability
+  - random order
+preferred-citation:
+  type: article
+  title: "Sharp finite-market prophet inequalities for a single threshold"
+  authors:
+    - name: "Anonymous"
+  year: 2026
+  doi: "10.5281/zenodo.24506643"
+  publisher:
+    name: "Zenodo"
+  notes: "Version 0.1.0-candidate; unrefereed"

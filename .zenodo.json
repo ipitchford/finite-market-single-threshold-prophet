@@ -1,0 +1,83 @@
+{
+ "title": "Sharp finite-market prophet inequalities for a single threshold",
+ "upload_type": "publication",
+ "publication_type": "preprint",
+ "description": "<p><strong>Unrefereed research candidate.</strong> Exact worst-case values of a fixed threshold in random-order markets, and a proof of the Arnosti-Ma stockout conjecture.</p><p><strong>Context.</strong> A seller with k identical items faces n buyers who arrive one at a time in uniformly random order; each buyer's value is drawn independently from a known distribution, and different buyers may have different distributions. The seller posts one price, never changes it, and sells to the first k buyers whose value clears it. The same rule describes one hiring bar for k posts or one quality cut-off for k slots. The rule is compared with a prophet who sees every value and keeps the best l, per place filled. Arnosti and Ma (Operations Research, 2023) found the best large-market guarantee of such a static threshold, &gamma;<sub>k</sub> = 1 &minus; e<sup>&minus;k</sup>k<sup>k</sup>/k! (about 63% for one item and 73% for two), using a target for the expected utilisation, and conjectured that targeting the probability of selling out at P(Pois(k) &ge; k) also attains &gamma;<sub>k</sub>. Exact finite-market values were known for identically distributed values (Arnosti; Jiang, Ma and Zhang) and for adversarial order; Molina, Gast, Loiseau and Perchet (SODA 2025) found the large-market constant for unequal capacities k &ne; l with identically distributed values and asked whether it extends to heterogeneous values.</p><p><strong>Main results.</strong> For every finite n &gt; max(k, l) and independent, possibly heterogeneous values in random order: (1) the exact worst-case ratio of the best distribution-aware threshold, and, as functions of the target, of thresholds calibrated to a stockout probability and to an expected utilisation (Theorem 2.1, Proposition 2.4); identical laws and the boundary cases k = n or l = n are also settled (Propositions 2.5, 2.6). Two binomial expectations determine every answer. (2) The utilisation rule at its best finite target equals the distribution-aware optimum; the stockout rule is strictly worse for k &ge; 2, by an amount of exact order 1/n<sup>2</sup> with an explicit leading coefficient (about 0.030/n<sup>2</sup> for k = l = 2); identical laws are strictly easier, by an amount of order 1/n (about 0.18/n for k = l = 2) (Corollaries 3.2, 3.3). (3) Over all market sizes, the Arnosti-Ma stockout target attains &gamma;<sub>k</sub> for every k: their conjecture is true (Corollary 3.1). As the paper records, Arnosti and Ma's own two-coefficient bound (their Lemma 1) combined with the crossing lemma already yields the conjecture; the rival counts are needed for the exact finite values. (4) For unequal capacities the same corollary gives the Molina et al. constant for heterogeneous values: their question is answered for static thresholds. Example: three buyers, two items: the best fixed threshold guarantees 79.1%, the best stockout target 78.7%, and 85.2% if buyers are identically distributed.</p><p><strong>Method.</strong> The number of qualifying buyers, and each buyer's number of qualifying rivals, is compared with a binomial or Poisson count having the same stockout probability; their distribution functions cross exactly once, at the stockout level, which bounds both the expected fraction of places filled and each buyer's chance of being served. For the matching upper bound, one instance (ordinary buyers plus one rare, very valuable buyer, chosen by a supporting-line argument) defeats every threshold and every randomisation over thresholds at once. The main theorem extends to weighted rank benchmarks and, for the distribution-aware and stockout rules, to mixtures of random and adversarial arrival order.</p><p><strong>Limits.</strong> One anonymous fixed threshold; independent values; arrival order uniformly random and independent of the values (or the stated mixtures); worst-case guarantees, so typical markets do better; the hard cases use a rare, very valuable buyer. Open: the exact finite value of the expected-demand rule, the stockout cost under order mixtures, and the gap to adaptive policies at finite n.</p><p><strong>Contents.</strong> The paper (LaTeX source and PDF); verify.py (exact rational checks of the crossing lemma on 585 Bernoulli profiles and of the welfare decomposition on 12 product laws by direct enumeration; a supporting-slope grid check on 650 parameter triples); check_extensions.py (order-mixture hard instances at 189 profiles; scaled stockout gap against its coefficient); check_additions.py (50-digit checks of the boundary cases, identical-law results, heterogeneity coefficient and the table); figure.py; recorded outputs; the bibliography; a machine-readable index; a research-gate record; a review summary; a replay receipt and SHA-256 sums. Checks exit with status 1 on failure, also under python -O. The computations check formulas on finite cases; the proofs carry the mathematical claims.</p><p><strong>Assurance.</strong> Written proofs with exact and high-precision computational checks. Internal AI-assisted review only: five reviewer roles run as one combined Claude pass, the lead's own proof audit by hand, a 50-digit numerical check and a clean replay, one revision round with extensions, then a re-review and proof audit of the new material. No second-model (Astra/Codex) review took place. Not peer review, independent reproduction or formal verification. Creator: Anonymous. Text CC0-1.0; code MIT.</p>",
+ "creators": [
+  {
+   "name": "Anonymous"
+  }
+ ],
+ "access_right": "open",
+ "license": "cc-zero",
+ "version": "0.1.0-candidate",
+ "publication_date": "2026-11-24",
+ "keywords": [
+  "prophet inequality",
+  "prophet secretary",
+  "static threshold",
+  "posted pricing",
+  "stockout probability",
+  "random order",
+  "online selection",
+  "multi-unit"
+ ],
+ "notes": "Subtitle: Exact worst-case values of a fixed threshold in random-order markets, and a proof of the Arnosti-Ma stockout conjecture. Code (*.py and the CI workflow) is MIT; prose, manuscript, figures and recorded outputs are CC0-1.0.",
+ "related_identifiers": [
+  {
+   "identifier": "https://github.com/ipitchford/finite-market-single-threshold-prophet/tree/v0.1.0-candidate",
+   "relation": "isSupplementTo",
+   "scheme": "url"
+  },
+  {
+   "identifier": "https://evidencepress.org/releases/finite-market-single-threshold-prophet/",
+   "relation": "isDocumentedBy",
+   "scheme": "url"
+  },
+  {
+   "identifier": "10.1287/opre.2022.2419",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.1287/opre.2023.0031",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.1137/1.9781611975031.46",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.1287/moor.2023.0221",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.1137/1.9781611978322.38",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.3150/09-bej216",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.5281/zenodo.23404235",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "arXiv:2608.08662",
+   "relation": "references",
+   "scheme": "arxiv"
+  },
+  {
+   "identifier": "https://nickarnosti.com/blog/iidprophet/",
+   "relation": "references",
+   "scheme": "url"
+  }
+ ]
+}

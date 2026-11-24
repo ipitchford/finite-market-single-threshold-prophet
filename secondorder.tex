@@ -1,0 +1,66 @@
+\subsection{The finite cost of coarser information}\label{sec:secondorder}
+This subsection measures, for large $n$, how much the stockout rule loses against the distribution-aware optimum, and how much heterogeneity loses against identical laws. The first loss is of order $n^{-2}$, the second of order $1/n$.
+
+Throughout, $U$ and $A$ are the Poisson functions of Section~\ref{sec:all}, $Z\sim\Pois(b)$, $c=\E u(Z)$ is the limiting value, and $k$ and $b\ge1$ are fixed while $n\to\infty$ with $n>\max(k,b)$.
+
+\begin{cor}\label{cor:gap}
+The cost of a stockout target is
+\[
+ C_{n,k,b}-\max_q S_{n,k,b}(q)
+ =\frac{b\,\E(k-1-Z)_+}{2k}\,
+   \frac{\Prob(Z>k)}{c}\,\frac{1}{n^2}+O_{k,b}(n^{-3}).
+\]
+The coefficient of $n^{-2}$ is positive for $k\ge2$. For $k=1$ the two values are equal at every $n$.
+\end{cor}
+
+\begin{cor}\label{cor:het}
+At every $n$, $C_{n,k,b}<C^{\rm iid}_{n,k,b}$. Moreover,
+\[
+ C^{\rm iid}_{n,k,b}-C_{n,k,b}=\frac{b\,\Prob(Z<k)\,\Prob(Z>k)}{k\,c}\,\frac1n+O_{k,b}(n^{-2}).
+\]
+\end{cor}
+
+\begin{proof}[Proof of the strict inequality in Corollary~\ref{cor:het}]
+Take $p_0=b/n$. By \eqref{eq:exchange}, $U_n(p_0)=(b/k)A_{n-1}(p_0)$. Adding one trial to $B_{n-1}(p_0)$ strictly increases its expected capped count, so $U_{n-1}(p_0)<U_n(p_0)=(b/k)A_{n-1}(p_0)$. By \eqref{eq:balance}, $p_*>p_0$. Since $A_{n-1}$ strictly decreases, $C_{n,k,b}=(b/k)A_{n-1}(p_*)<(b/k)A_{n-1}(p_0)=C^{\rm iid}_{n,k,b}$.
+\end{proof}
+
+\paragraph{Analytic set-up.}
+Both expansions rest on one fact: a binomial expectation of a function of a capped count is an analytic function of the inverse number of trials and of the mean. Write $\sigma$ for the inverse number of trials and $y$ for the mean. For fixed $j$, the binomial mass at $j$ has the analytic continuation
+\[
+ \frac{y^j}{j!}\prod_{i=0}^{j-1}(1-i\sigma)\,(1-\sigma y)^{1/\sigma-j},
+\]
+using $\log(1-\sigma y)/\sigma=-y+O(\sigma)$ near $\sigma=0$. Let $f$ be the utilisation $u$ or the stockout indicator $\mathbf 1_{d\ge k}$. Each is a constant plus a finite combination of the masses at $j<k$, so its binomial expectation $\widetilde f(\sigma,y)$ is analytic near $(0,b)$. The acceptance function is covered as well, because $A_m(p)=kU_{m+1}(p)/((m+1)p)$ for $p>0$. The probability generating function is $\exp(y(z-1))\big(1-\sigma y^2(z-1)^2/2+O(\sigma^2)\big)$, so
+\begin{equation}\label{eq:sigma}
+ \widetilde f(\sigma,y)=f^{\rm P}(y)-\tfrac12\sigma y^2\,(f^{\rm P})''(y)+O(\sigma^2),
+\end{equation}
+where $f^{\rm P}(y)=\E f(Z_y)$ is the Poisson value. For the utilisation, $U'(y)=\Prob(Z_y<k)/k$ and $U''(y)=-\Prob(Z_y=k-1)/k$. Also put $T_0(y)=(b/k)A(y)=bU(y)/y$. The derivative of $U-T_0$ at $b$ is $U(b)/b=c/b>0$. The Poisson shift identity gives $c-bU'(b)=\Prob(Z>k)$.
+
+In both proofs the finite intersection is unique by Theorem~\ref{thm:finite}. The analytic implicit function theorem gives a root near $b$ for all large $n$, so the two coincide.
+
+\begin{proof}[Proof of Corollary~\ref{cor:gap}]
+Parametrise the stockout level by $Q(x)=\Prob(Z_x\ge k)$, which has $Q'(x)=\Prob(Z_x=k-1)>0$. Let $s=1/m$. Let $L(s,x)=U_m(p_m(Q(x)))$ and $T(s,x)=(b/k)A_m(p_m(Q(x)))$. By the set-up and the analytic implicit function theorem, the calibrated mean $y(s,x)$ is analytic near $(0,b)$, and so are $L$ and $T$. At $s=0$ they equal $U(x)$ and $T_0(x)$. Implicit differentiation of the stockout equation gives $\partial_sy(0,x)=x^2Q''(x)/(2Q'(x))$, and then \eqref{eq:sigma} gives
+\[
+ L_s(0,x)=\frac{x^2}{2}\!\left(U'(x)\frac{Q''(x)}{Q'(x)}-U''(x)\right)
+         =\frac{x}{2k}\E(k-1-Z_x)_+ ,
+\]
+using $U''=-Q'/k$ and $Q''/Q'=(k-1)/x-1$.
+
+Set $s=1/(n-1)$ and $s'=1/n$. The all-static value is the ordinate where $L(s,\cdot)$ meets $T(s,\cdot)$. The best stockout value is the ordinate where $L(s',\cdot)$ meets the same $T(s,\cdot)$, because the full count has $n$ trials and the rival count $n-1$. Write $\Gamma(r,s)$ for the ordinate at the root of $L(r,x)=T(s,x)$ near $x=b$. It is analytic, and
+\[
+ \Gamma_r(0,0)=\frac{-T_0'(b)}{U'(b)-T_0'(b)}\,L_s(0,b)=\frac{\Prob(Z>k)}{c}\,L_s(0,b).
+\]
+Hence $\Gamma(s,s)-\Gamma(s',s)=(s-s')\,[\Gamma_r(0,0)+O(s)]$, and $s-s'=n^{-2}+O(n^{-3})$. For $k\ge2$, $\E(k-1-Z)_+>0$, so the coefficient is positive. For $k=1$ the two values coincide by the remark at the end of Section~\ref{sec:finite}.
+\end{proof}
+
+\begin{proof}[Proof of the expansion in Corollary~\ref{cor:het}]
+Let $s=1/n$ and write the qualification probability as $p=y/n$. By \eqref{eq:sigma}, $C^{\rm iid}_{n,k,b}=U_n(b/n)=c-\tfrac12 sb^2U''(b)+O(s^2)$. For the heterogeneous value, $U_{n-1}(y/n)$ has $n-1$ trials and mean $y(1-s)$, and $1/(n-1)=s+O(s^2)$. So
+\begin{align*}
+ U_{n-1}(y/n)&=U(y)-s\,yU'(y)-\tfrac12sy^2U''(y)+O(s^2),\\
+ \frac bkA_{n-1}(y/n)=\frac byU_n(y/n)&=T_0(y)-\tfrac12 s\,b\,yU''(y)+O(s^2).
+\end{align*}
+Let $\Psi(s,y)$ be the difference of these two expressions, so that \eqref{eq:balance} reads $\Psi(s,y)=0$. Then $\partial_y\Psi(0,b)=c/b$ and $\partial_s\Psi(0,b)=-bU'(b)$. So the root is $y=b+s\,b^2U'(b)/c+O(s^2)$. Evaluating the second expression at the root gives
+\[
+ C_{n,k,b}=c+s\Big[\big(U'(b)-c/b\big)\frac{b^2U'(b)}{c}-\tfrac12 b^2U''(b)\Big]+O(s^2).
+\]
+Subtracting this from the expansion of $C^{\rm iid}_{n,k,b}$ gives $s\,bU'(b)\,(c-bU'(b))/c$. This equals $s\,b\Prob(Z<k)\Prob(Z>k)/(kc)$.
+\end{proof}
